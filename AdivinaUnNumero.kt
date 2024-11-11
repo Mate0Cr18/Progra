@@ -83,6 +83,32 @@ fun jugar() {
 }
 
 fun main() {
+    var continuar = true
+    while (continuar) {
+        println(
+            "${BG_RED}${BLACK}Bienvenido al juego de adivinar un número${RESET}\n" +
+                    "1. Jugar\n" +
+                    "2. Ver traza de último intento\n" +
+                    "3. Salir\n" +
+                    "Seleccione una opción numérica: "
+        )
+
+        val input = readLine()
+        val choice = input?.toIntOrNull() // Convertir la entrada en número o devolver null si falla
+        println("Has elegido la opción $choice")
+        when (choice) {
+            1 -> jugar()
+            2 -> verTraza()
+            3 -> {
+                println("Gracias por jugar")
+                continuar = false
+            }
+            else -> println("Opción no válida")
+        }
+    }
+}
+
+/*fun main() {
     println(
         "${BG_RED}${BLACK}Bienvenido al juego de adivinar un número${RESET}\n" +
                 "1. Jugar\n" +
@@ -100,4 +126,4 @@ fun main() {
         3 -> println("Gracias por jugar")
         else -> println("Opción no válida")
     }
-}
+} */
